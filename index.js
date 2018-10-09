@@ -1,30 +1,27 @@
-var cart = [];
+function currentLine(line) {
+  if (!line.length) {
+    return "The line is currently empty."
+  }
 
-function getCart() {
- return cart;
-}
+  const numbersAndNames = []
 
-function setCart(c) {
-  cart = c;
-  return cart;
-}
+  for (let i = 0, l = line.length; i < l; i++) {
+    numbersAndNames.push(`${i + 1}. ${line[i]}`)
+  }
 
-function addToCart(item) {
- // write your code here
-}
+  return `The line is currently: ${numbersAndNames.join(', ')}`
+};
 
-function viewCart() {
-  // write your code here
-}
+function nowServing(line) {
+  if (!line.length) {
+    return "There is nobody waiting to be served!"
+  }
 
-function total() {
-  // write your code here
-}
+  return `Currently serving ${line.shift()}.`
+};
 
-function removeFromCart(item) {
-  // write your code here
-}
+function takeANumber(line, name) {
+  line.push(name)
 
-function placeOrder(cardNumber) {
-  // write your code here
-}
+  return `Welcome, ${name}. You are number ${line.length} in line.`
+};
